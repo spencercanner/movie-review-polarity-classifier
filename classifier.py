@@ -8,19 +8,14 @@ from sklearn.metrics import classification_report
 
 if __name__ == '__main__':
 
-    if len(sys.argv) < 1:
-        sys.exit(1)
-
-    data_dir = sys.argv[1]
     classes = ['pos', 'neg']
-
     train_data = []
     test_data = []
     train_labels = []
     test_labels = []
 
     for current_class in classes:
-        current_path = os.path.join(data_dir, current_class)
+        current_path = os.path.join('./data', current_class)
         for current_file in os.listdir(current_path):
             with open(os.path.join(current_path, current_file), 'r') as open_file:
                 content = open_file.read()
